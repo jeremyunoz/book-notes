@@ -16,6 +16,20 @@ _“Become a Full-Stack Web Developer with just ONE course. HTML, CSS, Javascrip
 
 -  [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers)
 
+## Environment Variables
+
+Create a `.env` file in the root of your project to securely store database credentials:
+
+```
+DB_USER=your_db_username
+DB_HOST=localhost
+DB_DATABASE=booknotes
+DB_PASSWORD=your_db_password
+DB_PORT=5432
+```
+
+Make sure to add `.env` to your `.gitignore` file to prevent it from being pushed to version control.
+
 ## Run Locally
 
 ```bash
