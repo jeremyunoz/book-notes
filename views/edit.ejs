@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Edit Book</title>
+      <link rel="stylesheet" href="/styles/styles.css" />
+   </head>
+   <body>
+      <header>
+         <h1>Edit Book</h1>
+         <nav>
+            <a href="/" class="back-link">← Back to Home</a>
+         </nav>
+      </header>
+
+      <main>
+         <form action="/edit/<%= book.id %>" method="POST" class="book-form">
+            <div>
+               <label for="title">Title:</label><br />
+               <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  value="<%= book.title %>"
+                  required
+               />
+            </div>
+            <div>
+               <label for="author">Author:</label><br />
+               <input
+                  type="text"
+                  name="author"
+                  id="author"
+                  value="<%= book.author %>"
+               />
+            </div>
+            <div>
+               <label for="rating">Rating:</label><br />
+               <input
+                  type="number"
+                  name="rating"
+                  id="rating"
+                  min="1"
+                  max="5"
+                  value="<%= book.rating %>"
+               />
+            </div>
+            <div>
+               <label for="date_read">Date Read:</label><br />
+               <input
+                  type="date"
+                  name="date_read"
+                  id="date_read"
+                  value="<%= book.date_read.toISOString().split('T')[0] %>"
+               />
+            </div>
+            <div>
+               <label for="notes">Notes:</label><br />
+               <textarea name="notes" id="notes"><%= book.notes %></textarea>
+            </div>
+            <div>
+               <label for="cover_url">Cover URL:</label><br />
+               <input
+                  type="text"
+                  name="cover_url"
+                  id="cover_url"
+                  value="<%= book.cover_url %>"
+               />
+            </div>
+            <div>
+               <button type="submit">Update Book</button>
+            </div>
+         </form>
+      </main>
+   </body>
+</html>

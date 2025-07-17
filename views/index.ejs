@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>My Book Notes</title>
+      <link rel="stylesheet" href="styles/styles.css" />
+   </head>
+   <body>
+      <header>
+         <h1>📚 My Book Notes</h1>
+         <nav>
+            <a href="/">Home</a>
+            <a href="/add">Add New Book</a>
+         </nav>
+      </header>
+
+      <main>
+         <section class="sort-controls">
+            <form method="GET" action="/">
+               <label for="sort">Sort by:</label>
+               <select name="sort" id="sort">
+                  <option value="rating" <%= sort === 'rating' ? 'selected' : '' %>>Rating</option>
+                  <option value="date_read" <%= sort === 'date_read' ? 'selected' : '' %>>Date Read</option>
+                  <option value="title" <%= sort === 'title' ? 'selected' : '' %>>Title</option>
+               </select>
+               <button type="submit">Sort</button>
+            </form>
+         </section>
+
+         <section class="book-list">
+            <% books.forEach(book => { %>
+            <div class="book-card">
+               <img
+                  src="<%= book.cover_url %>"
+                  alt="Cover of <%= book.title %>"
+               />
+               <div class="book-info">
+                  <h2><%= book.title %></h2>
+                  <p><strong>Author:</strong> <%= book.author %></p>
+                  <p><strong>Rating:</strong> <%= book.rating %>/5</p>
+                  <p>
+                     <strong>Date Read:</strong> <%= new
+                     Date(book.date_read).toDateString().slice(4) %>
+                  </p>
+                  <p><%= book.notes %></p>
+                  <div class="actions">
+                     <a href="/edit/<%= book.id %>">Edit</a>
+                     <form
+                        method="POST"
+                        action="/delete/<%= book.id %>"
+                        onsubmit="return confirm('Delete this book?');"
+                     >
+                        <button type="submit">Delete</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <% }) %>
+         </section>
+      </main>
+
+      <footer>
+         <p>Built with ❤️ by Jeremy Zheng | Inspired by Derek Sivers</p>
+      </footer>
+   </body>
+</html>

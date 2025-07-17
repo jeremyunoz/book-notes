@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Add New Book</title>
+      <link rel="stylesheet" href="/styles/styles.css" />
+   </head>
+   <body>
+      <header>
+         <h1>Add a New Book</h1>
+         <nav>
+            <a href="/" class="back-link">← Back to Home</a>
+         </nav>
+      </header>
+
+      <main>
+         <form action="/add" method="POST" class="book-form">
+            <div>
+               <label for="title">Title:</label><br />
+               <input type="text" name="title" id="title" required />
+            </div>
+            <div>
+               <label for="author">Author:</label><br />
+               <input type="text" name="author" id="author" />
+            </div>
+            <div>
+               <label for="rating">Rating:</label><br />
+               <input type="number" name="rating" id="rating" min="1" max="5" />
+            </div>
+            <div>
+               <label for="date_read">Date Read:</label><br />
+               <input type="date" name="date_read" id="date_read" />
+            </div>
+            <div>
+               <label for="notes">Notes:</label><br />
+               <textarea name="notes" id="notes"></textarea>
+            </div>
+            <div>
+               <label for="cover_url">Cover URL:</label><br />
+               <input type="text" name="cover_url" id="cover_url" />
+            </div>
+            <div>
+               <button type="submit">Add Book</button>
+            </div>
+         </form>
+      </main>
+   </body>
+</html>
